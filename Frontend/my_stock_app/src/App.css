@@ -1,0 +1,643 @@
+/* Base App Styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: radial-gradient(circle at top, #1e2030, #0b0c10);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+
+/* Header Styling */
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+  
+  /* FIX: Added line-height and padding so the top doesn't get chopped off */
+  line-height: 1.3;
+  padding: 10px 0;
+  
+  /* Cool gradient text effect */
+  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+header p {
+  color: #8b92a5;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+/* Layout for the cards */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* The Glassmorphism Cards */
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  color: #8b92a5;
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.price {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 10px 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* Vibe Check Signal Box */
+.signal-box {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.signal-box h3 {
+  font-size: 1rem;
+  color: #8b92a5;
+  margin-bottom: 0.5rem;
+}
+
+.signal-box h1 {
+  font-size: 2rem;
+  margin: 0;
+  animation: pulse 2s infinite; /* Adds a breathing effect */
+}
+
+/* Status Colors */
+.green-text {
+  color: #00e676;
+  text-shadow: 0 0 15px rgba(0, 230, 118, 0.4);
+}
+
+.red-text {
+  color: #ff4b4b;
+  text-shadow: 0 0 15px rgba(255, 75, 75, 0.4);
+}
+
+/* Animation Keyframes */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* Selector Styling */
+.selector-container {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: #8b92a5;
+}
+
+.asset-dropdown {
+  background: rgba(255, 255, 255, 0.07);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background 0.3s ease;
+}
+
+.asset-dropdown:focus {
+  border-color: #00f2fe;
+}
+
+.asset-dropdown option {
+  background: #1e2030;
+  color: white;
+}
+
+/* Confidence Gauge Styling */
+.confidence-box {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+
+.confidence-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.confidence-header h3 {
+  font-size: 0.9rem;
+  color: #8b92a5;
+  margin: 0;
+}
+
+.confidence-header span {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s ease;
+}
+
+/* The new master wrapper */
+.app-container {
+  display: flex;
+  justify-content: center; /* Keeps everything centered */
+  align-items: flex-start;
+  gap: 2rem; /* Space between columns */
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Our center column */
+.dashboard-main {
+  flex: 1;
+  max-width: 600px; /* Keeps your current cards looking perfect */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* The new side panels */
+.side-panel {
+  width: 300px; /* Fixed width for the sides */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Optional: Hide the side panels on mobile screens so it doesn't squish! */
+@media (max-width: 1100px) {
+  .side-panel {
+    display: none;
+  }
+}
+
+/* News Feed Styling */
+.news-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.news-item {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.news-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #00f2fe;
+  transform: translateX(5px); /* Cool little slide effect when you hover */
+}
+
+.publisher {
+  font-size: 0.7rem;
+  color: #00f2fe;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+
+.news-item h4 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #e2e8f0;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Command Center Styling */
+.portfolio-balance {
+  background: rgba(0, 242, 254, 0.05);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  margin: 1.5rem 0;
+  text-align: center;
+  box-shadow: inset 0 0 20px rgba(0, 242, 254, 0.05);
+}
+
+.portfolio-balance p {
+  color: #00f2fe;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0 0 0.5rem 0;
+  font-weight: 800;
+}
+
+.portfolio-balance h3 {
+  font-size: 2.2rem;
+  margin: 0;
+  color: white;
+  text-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+}
+
+/* Watchlist Buttons */
+.watchlist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.watchlist h3 {
+  font-size: 0.85rem;
+  color: #8b92a5;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.watch-btn {
+  background: rgba(255, 255, 255, 0.03);
+  color: #8b92a5;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.watch-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  transform: translateX(5px);
+}
+
+.watch-btn.active {
+  background: rgba(0, 242, 254, 0.15);
+  border-color: #00f2fe;
+  color: white;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+  transform: translateX(5px);
+}
+
+/* Trade Actions Container */
+.trade-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Action Buttons base */
+.trade-btn {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.trade-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Buy specific styling */
+.buy-btn {
+  background: #00e676;
+  color: #0b0c10;
+  box-shadow: 0 4px 15px rgba(0, 230, 118, 0.2);
+}
+
+.buy-btn:hover:not(:disabled) {
+  background: #00c862;
+  transform: translateY(-2px);
+}
+
+/* Sell specific styling */
+.sell-btn {
+  background: #ff4b4b;
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 75, 75, 0.2);
+}
+
+.sell-btn:hover:not(:disabled) {
+  background: #e03a3a;
+  transform: translateY(-2px);
+}
+
+/* Holdings badge inside watchlist buttons */
+.holding-badge {
+  background: rgba(0, 242, 254, 0.2);
+  border: 1px solid #00f2fe;
+  color: #00f2fe;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+/* 1. Give the whole app more room to breathe */
+.app-container {
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start;
+  gap: 2rem; 
+  padding: 2rem;
+  max-width: 1600px; /* 🆕 Increased from 1400px */
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 2. Let the center column expand more */
+.dashboard-main {
+  flex: 1;
+  min-width: 450px; /* 🆕 Stops it from crushing on medium screens */
+  max-width: 800px; /* 🆕 Increased from 600px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 3. Slightly slim down the side panels */
+.side-panel {
+  width: 280px; /* 🆕 Shaved off 20px so the middle gets priority */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* 4. Force the title to stay on one line */
+header h1 {
+  white-space: nowrap; /* 🆕 Prevents the awkward word wrap */
+  font-size: 3rem; 
+  margin-bottom: 0.5rem;
+}
+
+/* Optional: Make the chart dynamically stretch to fill the new wider space */
+.card {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Command Center Styling - Updated for better fit */
+.portfolio-balance {
+  background: rgba(0, 242, 254, 0.05);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  border-radius: 12px;
+  padding: 1.2rem 0.5rem; /* 🆕 Shrank the side padding to give text more room */
+  margin: 1.5rem 0;
+  text-align: center;
+  box-shadow: inset 0 0 20px rgba(0, 242, 254, 0.05);
+}
+
+.portfolio-balance p {
+  color: #00f2fe;
+  font-size: 0.65rem; /* 🆕 Slightly smaller font */
+  text-transform: uppercase;
+  letter-spacing: 1px; /* 🆕 Tighter letter spacing */
+  margin: 0 0 0.5rem 0;
+  font-weight: 800;
+  white-space: nowrap; /* 🆕 Forces "PAPER TRADING POWER" to stay on one line */
+}
+
+.portfolio-balance h3 {
+  font-size: 1.7rem; /* 🆕 Scaled down from 2.2rem so the numbers fit */
+  margin: 0;
+  color: white;
+  text-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+}
+
+/* Side Panel Headers Fix */
+.side-panel h2 {
+  font-size: 1.1rem; /* Slightly smaller to fit the slimmer panel */
+  white-space: nowrap; /* Forces the text to stay on exactly one line */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #e2e8f0; /* Keeps it bright and readable */
+  margin-bottom: 1rem;
+}
+
+/* Dynamic Vibe Meter Styling */
+.vibe-meter-box {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.vibe-meter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.vibe-meter-header h3 {
+  font-size: 0.9rem;
+  color: #8b92a5;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.vibe-meter-header span {
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.gauge-track {
+  position: relative;
+  width: 100%;
+  height: 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.gauge-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Creates the Red -> Dark -> Green transition */
+  background: linear-gradient(90deg, rgba(255, 75, 75, 0.8) 0%, rgba(30, 32, 48, 0.2) 50%, rgba(0, 230, 118, 0.8) 100%);
+}
+
+.gauge-center-mark {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.gauge-needle {
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 4px;
+  transform: translateX(-50%);
+  /* The secret sauce for the smooth slide animation */
+  transition: left 1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease;
+  z-index: 2;
+}
+
+.gauge-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: #8b92a5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Add breathing room between card headers and the massive numbers */
+.card h2 {
+  margin-bottom: 1.2rem; /* Pushes the price down */
+}
+
+.price {
+  margin-top: 0; /* Resets default browser spacing so our custom margin looks perfect */
+  line-height: 1; /* Keeps the big numbers crisp and tight within their own space */
+}
+
+/* Master Page Layout */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Forces the page to be at least as tall as your screen */
+}
+
+/* Footer Styling */
+.app-footer {
+  text-align: center;
+  padding: 2rem;
+  margin-top: auto; /* This magically pushes the footer to the absolute bottom */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: #8b92a5;
+  font-size: 0.85rem;
+  background: rgba(11, 12, 16, 0.5); /* Slight dark tint to separate it from the main app */
+}
+
+.app-footer p {
+  margin-bottom: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.footer-links a {
+  color: #00f2fe;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+/* Social Links Styling */
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-links a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.social-links a:hover {
+  color: #00f2fe;
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+  transform: translateY(-2px);
+}
+
+.divider {
+  color: #8b92a5;
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
