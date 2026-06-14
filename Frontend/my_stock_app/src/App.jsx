@@ -38,7 +38,7 @@ function App() {
   // Fetching live data from our Python bridge
   useEffect(() => {
     setLoading(true);
-    fetch(`http://127.0.0.1:8000/api/predict?asset=${encodeURIComponent(selectedAsset)}`)
+    fetch(`https://market-oracle-api.onrender.com/api/predict?asset=${encodeURIComponent(selectedAsset)}`)
       .then(response => response.json())
       .then(data => {
         setCurrentPrice(data.currentPrice);
